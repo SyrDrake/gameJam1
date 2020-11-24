@@ -276,18 +276,18 @@ public class UpgradeManagers : MonoBehaviour
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-
+            achatManagers.LevelMax();
         }
     }
 
     public void ChassiLevel3Upgrade6()
     {
         chassiLevel3Upgrade5 = false;
-        chassiLevel3Upgrade5 = true;
+        chassiLevel3Upgrade6 = true;
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-            
+            achatManagers.LevelMax();
         }
     }
 
@@ -298,7 +298,7 @@ public class UpgradeManagers : MonoBehaviour
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-
+            achatManagers.LevelMax();
         }
     }
 
@@ -309,7 +309,7 @@ public class UpgradeManagers : MonoBehaviour
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-
+            achatManagers.LevelMax();
         }
     }
 
@@ -320,7 +320,7 @@ public class UpgradeManagers : MonoBehaviour
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-
+            achatManagers.LevelMax();
         }
     }
 
@@ -332,8 +332,10 @@ public class UpgradeManagers : MonoBehaviour
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
-
+            achatManagers.LevelMax();
         }
     }
+
+
 
 }

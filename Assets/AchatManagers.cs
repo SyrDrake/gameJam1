@@ -9,6 +9,7 @@ public class AchatManagers : MonoBehaviour
     private bool youAreLevel1 = true;
     private bool youAreLevel2 = false;
     private bool youAreLevel3 = false;
+    //private bool youAreLevelMax = false;
     public bool youCanHaveLevel2 = false;
     public bool youCanHaveLevel3 = false;
 
@@ -133,6 +134,7 @@ public class AchatManagers : MonoBehaviour
             buttonRecolteWoodLevel2Upgrade4.SetActive(false);
             buttonVitesseLevel2Upgrade4.SetActive(false);
         }
+
         if (youAreLevel2)
         {
             buttonChassiLevel1Upgrade2.SetActive(false);
@@ -164,6 +166,7 @@ public class AchatManagers : MonoBehaviour
             buttonRecolteWoodLevel2Upgrade4.SetActive(false);
             buttonVitesseLevel2Upgrade4.SetActive(false);
         }
+        
     }
     public void Close()
     {
@@ -534,7 +537,7 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.chassiLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
 
@@ -563,7 +566,7 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.fuelLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
 
@@ -592,7 +595,7 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.recolteWoodLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
     }
@@ -621,7 +624,7 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.recolteRockLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
 
@@ -650,7 +653,7 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.recolteIronLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
 
@@ -679,9 +682,15 @@ public class AchatManagers : MonoBehaviour
 
         if (upgradeManagers.vitesseLevel3Upgrade6 == true)
         {
-
+            LevelMax();
         }
 
+    }
+
+    public void LevelMax()
+    {
+        StartCoroutine(TextFeedBack());
+        textFeedBack_T.text = "You are Level Max !!";
     }
 
 
