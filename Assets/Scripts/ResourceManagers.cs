@@ -7,8 +7,12 @@ public class ResourceManagers : MonoBehaviour
 {
     public bool debug;
 
+    public GameObject youCanTakeThis_G;
+    public Text youCanTakeThis_T;
+
     private int currentBois;
     public int startBois = 0;
+    public int maxWood_RM;
     public float timeRecolteBois;
     public Image recolteBois;
     private bool isRecoltingWood;
@@ -17,6 +21,7 @@ public class ResourceManagers : MonoBehaviour
 
     private int currentRock;
     public int StartRock = 0;
+    public int maxRock_RM;
     public float timeRecolteRock;
     public Image recolteRock;
     private bool isRecoltingRock;
@@ -25,6 +30,7 @@ public class ResourceManagers : MonoBehaviour
 
     private int currentIron;
     public int StartIron = 0;
+    public int maxIron_RM;
     public float timeRecolteIron;
     public Image recolteIron;
     private bool isRecoltingIron;
@@ -51,6 +57,8 @@ public class ResourceManagers : MonoBehaviour
         currentIron = StartIron;
         recolteIron.enabled = false;
         isRecoltingIron = false;
+
+        youCanTakeThis_G.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,23 +88,49 @@ public class ResourceManagers : MonoBehaviour
 
     }
 
+    IEnumerator TextYouCantTakeThis()
+    {
+        youCanTakeThis_G.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        youCanTakeThis_G.SetActive(false);
+    }
+
     public void StartCoroutineBois()
     {
-        StartCoroutine(TakeBois());
-        
-        
+        if(maxWood_RM > 0)
+        {
+            StartCoroutine(TakeBois());
+        } 
+                
     }
 
     public void StartCoroutineRock()
     {
-        StartCoroutine(TakeRock());
-
+        if(maxRock_RM > 0)
+        {
+            StartCoroutine(TakeRock());
+        }
+        
+        if(maxRock_RM <= 0)
+        {
+            StartCoroutine(TextYouCantTakeThis());
+            youCanTakeThis_T.text = "you must first pass level 2";
+        }
     }
 
     public void StartCoroutineIron()
     {
-        StartCoroutine(TakeIron());
+        if(maxIron_RM > 0)
+        {
+            StartCoroutine(TakeIron());
+        }
 
+        if(maxIron_RM <= 0)
+        {
+            StartCoroutine(TextYouCantTakeThis());
+            youCanTakeThis_T.text = "you must first pass level 3";
+        }
+        
     }
 
 
@@ -108,6 +142,7 @@ public class ResourceManagers : MonoBehaviour
         isRecoltingWood = true;
         yield return new WaitForSeconds(timeRecolteBois);
         currentBois += 10;
+        currentBois = Mathf.Clamp(currentBois, 0, maxWood_RM);
         currentBoisText.text = currentBois.ToString();
         recolteBois.enabled = false;
         isRecoltingWood = false;
@@ -123,6 +158,7 @@ public class ResourceManagers : MonoBehaviour
         isRecoltingRock = true;
         yield return new WaitForSeconds(timeRecolteRock);
         currentRock += 7;
+        currentRock = Mathf.Clamp(currentRock, 0, maxRock_RM);
         currentRockText.text = currentRock.ToString();
         recolteRock.enabled = false;
         isRecoltingRock = false;
@@ -137,6 +173,7 @@ public class ResourceManagers : MonoBehaviour
         isRecoltingIron = true;
         yield return new WaitForSeconds(timeRecolteIron);
         currentIron += 5;
+        currentIron = Mathf.Clamp(currentIron, 0, maxIron_RM);
         currentIronText.text = currentIron.ToString();
         recolteIron.enabled = false;
         isRecoltingIron = false;

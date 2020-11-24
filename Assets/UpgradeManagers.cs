@@ -12,6 +12,7 @@ public class UpgradeManagers : MonoBehaviour
     private int currentWagonIron = 0;
 
     public AchatManagers achatManagers;
+    public PlayrManager playrManager;
 
     #endregion
 
@@ -86,6 +87,7 @@ public class UpgradeManagers : MonoBehaviour
 
 
         achatManagers.GetComponent<AchatManagers>();
+        playrManager.GetComponent<PlayrManager>();
     }
 
     // Update is called once per frame
@@ -99,6 +101,7 @@ public class UpgradeManagers : MonoBehaviour
         currentFuel = maxFuelLevel1Upgrade2;
         fuelLevel1Upgrade1 = false;
         fuelLevel1Upgrade2 = true;
+        
 
         if (chassiLevel1Upgrade2 == true && recoltWoodLeval1Upgrade2 == true && vitesseLevel1Upgrade2 == true && fuelLevel1Upgrade2 == true)
         {
@@ -112,6 +115,7 @@ public class UpgradeManagers : MonoBehaviour
     {
         chassiLevel1Upgrade2 = true;
         chassiLevel1Upgrade1 = false;
+        playrManager.currentChassi = "chassiLevel1Upgrade2";
 
         if (chassiLevel1Upgrade2 == true && recoltWoodLeval1Upgrade2 == true && vitesseLevel1Upgrade2 == true && fuelLevel1Upgrade2 == true)
         {
@@ -160,6 +164,7 @@ public class UpgradeManagers : MonoBehaviour
             recolteWoodLevel2Upgrade3 = true;
             recolteRockLevel2Upgrade3 = true;
             vitesseLevel2Upgrade3 = true;
+            playrManager.currentChassi = "chassiLevel2Upgrade3";
 
             currentFuel = maxFuelLevel2Upgrade3;
             fuelLevel1Upgrade2 = false;
@@ -192,6 +197,7 @@ public class UpgradeManagers : MonoBehaviour
     {
         chassiLevel2Upgrade3 = false;
         chassiLevel2Upgrade4 = true;
+        playrManager.currentChassi = "chassiLevel2Upgrade4";
 
         if (chassiLevel2Upgrade4 == true && recolteWoodLevel2Upgrade4 == true && recolteRockLevel2Upgrade4 == true && vitesseLevel2Upgrade4 == true && fuelLevel2Upgrade4 == true)
         {
@@ -261,6 +267,7 @@ public class UpgradeManagers : MonoBehaviour
             recolteRockLevel3Upgrade5 = true;
             recolteIronLevel3Upgrade5 = true;
             vitesseLevel3Upgrade5 = true;
+            playrManager.currentChassi = "chassiLevel3Upgrade5";
 
         }
     }
@@ -284,6 +291,7 @@ public class UpgradeManagers : MonoBehaviour
     {
         chassiLevel3Upgrade5 = false;
         chassiLevel3Upgrade6 = true;
+        playrManager.currentChassi = "chassiLevel3Upgrade6";
 
         if (chassiLevel3Upgrade6 == true && recolteWoodLevel3Upgrade6 == true && recolteRockLevel3Upgrade6 == true && recolteIronLevel3Upgrade6 == true && vitesseLevel3Upgrade6 == true && fuelLevel3Upgrade6 == true)
         {
