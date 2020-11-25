@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ResourceManagers : MonoBehaviour
 {
+    public PlayrManager playrManager;
+
     public bool debug;
 
     public GameObject youCanTakeThis_G;
@@ -21,7 +23,7 @@ public class ResourceManagers : MonoBehaviour
 
     private int currentRock;
     public int StartRock = 0;
-    public int maxRock_RM;
+    public int maxRock_RM = 0;
     public float timeRecolteRock;
     public Image recolteRock;
     private bool isRecoltingRock;
@@ -30,7 +32,7 @@ public class ResourceManagers : MonoBehaviour
 
     private int currentIron;
     public int StartIron = 0;
-    public int maxIron_RM;
+    public int maxIron_RM = 0;
     public float timeRecolteIron;
     public Image recolteIron;
     private bool isRecoltingIron;
@@ -46,6 +48,8 @@ public class ResourceManagers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playrManager.GetComponent<PlayrManager>();
+
         currentBois = startBois;
         recolteBois.enabled = false;
         isRecoltingWood = false;
@@ -64,10 +68,7 @@ public class ResourceManagers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-       
-       
+
 
         if (isRecoltingWood)
         {

@@ -10,6 +10,8 @@ public class OpenUI : MonoBehaviour
     void Start()
     {
         garageUI.SetActive(false);
+        
+        
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class OpenUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             garageUI.SetActive(true);
+           
         }
     }
 
