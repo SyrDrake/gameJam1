@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayrManager : MonoBehaviour
 {
     public ResourceManagers resourceManagers;
-
+    public Mover mover;
 
     public int currentWagonWood = 0;
     public int currentWagonRock = 0;
@@ -28,6 +28,7 @@ public class PlayrManager : MonoBehaviour
     void Start()
     {
         resourceManagers.GetComponent<ResourceManagers>();
+        mover.GetComponent<Mover>();
 
         currentChassi = "chassiLevel1Upgrade1";
         currentFuel = "currentFuel";
@@ -287,32 +288,33 @@ public class PlayrManager : MonoBehaviour
     {
         if (currentVitesse == "vitesseLevel1Upgrade1")
         {
-
+            mover.speed = 4;
+            Debug.Log(mover.speed);
         }
 
         if (currentVitesse == "vitesseLevel1Upgrade2")
         {
-
+            mover.speed = 5;
         }
 
         if (currentVitesse == "vitesseLevel2Upgrade3")
         {
-
+            mover.speed = 6;
         }
 
         if (currentVitesse == "vitesseLevel2Upgrade4")
         {
-
+            mover.speed = 7;
         }
 
         if (currentVitesse == "vitesseLevel3Upgrade5")
         {
-
+            mover.speed = 8;
         }
 
         if (currentVitesse == "vitesseLevel3Upgrade5")
         {
-
+            mover.speed = 9;
         }
     }
 }

@@ -113,7 +113,6 @@ public class AchatManagers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(youCanHaveLevel2);
         WhatLevel();
     }
 

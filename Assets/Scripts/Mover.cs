@@ -4,89 +4,77 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    private float m_horizontalInput;
-    private float m_verticalInput;
-    private float m_steeringAngle;
+    public float speed;
+    public float turnSpeed;
+    private bool isMoving;
+    public float gravityMultiplier;
 
-    public WheelCollider front_R_Wheel, front_L_Wheel;
-    public WheelCollider rear_R_Wheel, rear_L_Wheel;
-    public Transform front_R_Transform, front_L_Transform;
-    public Transform rear_R_Transform, rear_L_Transform;
-    public float maxSteerAngle = 30;
-    public float motorForce = 50;
-    public float brakeForce = 5000;
+    private Rigidbody rb;
 
-
-    public void GetInput()
+    private void Start()
     {
-        m_horizontalInput = Input.GetAxis("Horizontal");
-        m_verticalInput = Input.GetAxis("Vertical");
-       
-    }
-
-    private void Steer()
-    {
-        m_steeringAngle = maxSteerAngle * m_horizontalInput;
-        front_L_Wheel.steerAngle = m_steeringAngle;
-        front_R_Wheel.steerAngle = m_steeringAngle;
-    }
-
-    private void Acceleration()
-    {
-        front_L_Wheel.motorTorque = m_verticalInput * motorForce;
-        front_R_Wheel.motorTorque = m_verticalInput * motorForce;
-        rear_L_Wheel.motorTorque = m_verticalInput * motorForce;
-        rear_R_Wheel.motorTorque = m_verticalInput * motorForce;
-    }
-
-    private void BrakeOn()
-    {
-        front_L_Wheel.brakeTorque = brakeForce;
-        front_R_Wheel.brakeTorque = brakeForce;
-        rear_L_Wheel.brakeTorque = brakeForce;
-        rear_R_Wheel.brakeTorque = brakeForce;
-    }
-
-    private void BrakeOff()
-    {
-        front_L_Wheel.brakeTorque = 0;
-        front_R_Wheel.brakeTorque = 0;
-        rear_L_Wheel.brakeTorque = 0;
-        rear_R_Wheel.brakeTorque = 0;
-    }
-    private void UpdateWheelPoses()
-    {
-        UpdateWheelPose(front_L_Wheel, front_L_Transform);
-        UpdateWheelPose(front_R_Wheel, front_R_Transform);
-        UpdateWheelPose(rear_L_Wheel, rear_L_Transform);
-        UpdateWheelPose(rear_R_Wheel, rear_R_Transform);
-    }
-    private void UpdateWheelPose(WheelCollider _collider, Transform _transform)
-    {
-        Vector3 _pos = _transform.position;
-        Quaternion _quat = _transform.rotation;
-
-        _collider.GetWorldPose(out _pos, out _quat);
-
-        _transform.position = _pos;
-        _transform.rotation = _quat;
+        rb = GetComponent<Rigidbody>();
+        isMoving = false;
     }
 
     private void FixedUpdate()
     {
-        GetInput();
-        Steer();
-        Acceleration();
-        UpdateWheelPoses();
-        if (Input.GetButtonDown("Jump"))
+
+        Debug.Log(isMoving);
+      
+
+        if (Input.GetKeyUp(KeyCode.Z))
         {
-            BrakeOn();
+            isMoving = false;
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetKeyUp(KeyCode.S))
         {
-            BrakeOff();
+            isMoving = false;
         }
+
+
+        Move();
+        Turn();
+        Fall();    
+
+
+    }
+
+    private void Move()
+    {
+        if (Input.GetKey(KeyCode.Z))
+        {
+            rb.AddRelativeForce(new Vector3( Vector3.forward.x,0,Vector3.forward.z) * speed * 10);
+            isMoving = true;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddRelativeForce(-(new Vector3(Vector3.forward.x, 0, Vector3.forward.z) * speed * 10) / 2);
+            isMoving = true;
+        }
+        Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
+        localVelocity.x = 0;
+        rb.velocity = transform.TransformDirection(localVelocity);
+    }
+
+    private void Turn()
+    {
+        if (Input.GetKey(KeyCode.D) && isMoving)
+        {
+            rb.AddTorque(Vector3.up * turnSpeed * 10);
+        }
+
+        if (Input.GetKey(KeyCode.Q) && isMoving)
+        {
+            rb.AddTorque(-Vector3.up * turnSpeed * 10);
+        }
+    }
+
+    private void Fall()
+    {
+        rb.AddForce(Vector3.down * gravityMultiplier * 10);
     }
 
 }

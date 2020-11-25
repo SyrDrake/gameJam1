@@ -32,7 +32,6 @@ public class UpgradeManagers : MonoBehaviour
     #endregion
 
     #region Level1Upgrade2
-    private float maxFuelLevel1Upgrade2 = 150;
     public bool fuelLevel1Upgrade2 = false;
     public bool chassiLevel1Upgrade2 = false;
     public bool recoltWoodLeval1Upgrade2 = false;
@@ -41,7 +40,6 @@ public class UpgradeManagers : MonoBehaviour
 
     #region Level2Upgrade3
     private bool level2 = false;
-    public float maxFuelLevel2Upgrade3 = 200;
     public bool fuelLevel2Upgrade3 = false;
     public bool chassiLevel2Upgrade3 = false;
     public bool recolteWoodLevel2Upgrade3 = false;
@@ -50,7 +48,7 @@ public class UpgradeManagers : MonoBehaviour
     #endregion
 
     #region Level2Upgrade4
-    public float maxFuelLevel2Upgrade4 = 250;
+    
     public bool fuelLevel2Upgrade4 = false;
     public bool chassiLevel2Upgrade4 = false;
     public bool recolteWoodLevel2Upgrade4 = false;
@@ -60,7 +58,7 @@ public class UpgradeManagers : MonoBehaviour
 
     #region Level3Upgrade5
     private bool level3 = false;
-    private float maxFuelLevel3Upgrade5 = 300;
+
     private bool fuelLevel3Upgrade5 = false;
     private bool chassiLevel3Upgrade5 = false;
     private bool recolteWoodLevel3Upgrade5 = false;
@@ -70,7 +68,7 @@ public class UpgradeManagers : MonoBehaviour
     #endregion
 
     #region Level3Upgrade6
-    public float maxFuelLevel3Upgrade6 = 350;
+
     public bool fuelLevel3Upgrade6 = false;
     public bool chassiLevel3Upgrade6 = false;
     public bool recolteWoodLevel3Upgrade6 = false;
@@ -98,7 +96,7 @@ public class UpgradeManagers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Fuel :" + currentFuel);
+        //Debug.Log("Fuel :" + currentFuel);
         if (Input.GetButton("Vertical"))
         {
             currentFuel -= 0.1f;
@@ -121,7 +119,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel2 = true;
             achatManagers.YoucanHaveLevel2();
-            Debug.Log("youCanHaveLevel2");
+            
         }
     }
 
@@ -137,7 +135,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel2 = true;
             achatManagers.YoucanHaveLevel2();
-            Debug.Log("youCanHaveLevel2");
+            
         }
     }
 
@@ -152,7 +150,6 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel2 = true;
             achatManagers.YoucanHaveLevel2();
-            Debug.Log("youCanHaveLevel2");
         }
     }
     
@@ -167,7 +164,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel2 = true;
             achatManagers.YoucanHaveLevel2();
-            Debug.Log("youCanHaveLevel2");
+      
         }
     }
 
@@ -178,7 +175,7 @@ public class UpgradeManagers : MonoBehaviour
             level1 = false;
             level2 = true;
 
-            maxFuelLevel2Upgrade3 = 200;
+       
             fuelLevel2Upgrade3 = true;
             chassiLevel2Upgrade3 = true;
             recolteWoodLevel2Upgrade3 = true;
@@ -199,7 +196,7 @@ public class UpgradeManagers : MonoBehaviour
             playrManager.VitesseUpgrade();
 
 
-            currentFuel = maxFuelLevel2Upgrade3;
+           
             fuelLevel1Upgrade2 = false;
             chassiLevel1Upgrade2 = false;
             recoltWoodLeval1Upgrade2 = false;
@@ -214,7 +211,7 @@ public class UpgradeManagers : MonoBehaviour
 
     public void FuelLevel2Upgrade4()
     {
-        currentFuel = maxFuelLevel2Upgrade4;
+       
         fuelLevel2Upgrade3 = false;
         fuelLevel2Upgrade4 = true;
         playrManager.currentFuel = "fuelLevel2Upgrade4";
@@ -225,7 +222,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel3 = true;
             achatManagers.YoucanHaveLevel3();
-            Debug.Log("youCanHaveLevel3");
+        
         }
     }
 
@@ -241,7 +238,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel3 = true;
             achatManagers.YoucanHaveLevel3();
-            Debug.Log("youCanHaveLevel3");
+          
         }
     }
 
@@ -257,7 +254,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel3 = true;
             achatManagers.YoucanHaveLevel3();
-            Debug.Log("youCanHaveLevel3");
+            
         }
     }
 
@@ -272,7 +269,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel3 = true;
             achatManagers.YoucanHaveLevel3();
-            Debug.Log("youCanHaveLevel3");
+            
         }
     }
 
@@ -287,7 +284,7 @@ public class UpgradeManagers : MonoBehaviour
         {
             achatManagers.youCanHaveLevel3 = true;
             achatManagers.YoucanHaveLevel3();
-            Debug.Log("youCanHaveLevel3");
+           
         }
     }
 
@@ -298,14 +295,13 @@ public class UpgradeManagers : MonoBehaviour
             level2 = false;
             level3 = true;
 
-            maxFuelLevel3Upgrade5 = 300;
+     
             fuelLevel2Upgrade3 = false;
             chassiLevel2Upgrade3 = false;
             recolteWoodLevel2Upgrade3 = false;
             recolteRockLevel2Upgrade3 = false;
             vitesseLevel2Upgrade3 = false;
 
-            currentFuel = maxFuelLevel3Upgrade5;
             fuelLevel3Upgrade5 = true;
             chassiLevel3Upgrade5 = true;
             recolteWoodLevel3Upgrade5 = true;
@@ -338,7 +334,7 @@ public class UpgradeManagers : MonoBehaviour
 
     public void FuelLevel3Upgrade6()
     {
-        currentFuel = maxFuelLevel2Upgrade4;
+        
         fuelLevel3Upgrade5 = false;
         fuelLevel3Upgrade6 = true;
         playrManager.currentFuel = "fuelLevel3Upgrade6";
